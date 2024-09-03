@@ -6,69 +6,78 @@
     <title>Crypto Wallet</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             height: 100vh;
             margin: 0;
+            font-family: Arial, sans-serif;
             background-color: #f4f4f4;
         }
-        .qr-code {
+        .block {
+            background-color: white;
             border-radius: 15px;
-            overflow: hidden;
-            width: 200px;
-            height: 200px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #fff;
+            padding: 20px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-        }
-        .wallet-address {
             text-align: center;
             margin-bottom: 20px;
         }
+        .qr-image {
+            border-radius: 15px;
+            width: 200px; /* Adjust size as needed */
+            height: 200px; /* Adjust size as needed */
+        }
         .copy-button {
-            padding: 10px 20px;
-            background-color: #007BFF;
+            background-color: #007bff;
             color: white;
             border: none;
             border-radius: 25px;
+            padding: 10px 20px;
             cursor: pointer;
             font-size: 16px;
-            transition: background-color 0.3s ease;
         }
         .copy-button:hover {
             background-color: #0056b3;
+        }
+        .message {
+            margin-top: 10px;
+            color: green;
         }
     </style>
 </head>
 <body>
 
-    <div class="qr-code">
-        <img src="qrcode.png" alt="QR Code" style="border-radius: 15px; width: 100%; height: auto;">
+    <div class="block">
+        <img src="qrcode.png" alt="QR Code" class="qr-image">
     </div>
 
-    <div class="wallet-address">
+    <div class="block">
         <h2>Send 1 TON to Address</h2>
-        <p id="walletAddress">EQCAQd8w43IEdyYXpdPO0IRtvi2FsdCJcWQssrAt3y8KHiRd</p>
+        <p id="wallet-address">EQCAQd8w43IEdyYXpdPO0IRtvi2FsdCJcWQssrAt3y8KHiRd</p>
     </div>
 
     <button class="copy-button" onclick="copyToClipboard()">Copy to Clipboard</button>
+    <div id="message" class="message"></div>
 
     <script>
         function copyToClipboard() {
-            const walletAddress = document.getElementById('walletAddress').innerText;
+            const walletAddress = document.getElementById('wallet-address').innerText;
             navigator.clipboard.writeText(walletAddress).then(() => {
-                alert('Wallet address copied to clipboard!');
+                const messageDiv = document.getElementById('message');
+                messageDiv.innerText = 'Wallet address copied to clipboard!';
+                messageDiv.style.color = 'green';
+                setTimeout(() => {
+                    messageDiv.innerText = '';
+                }, 3000); // Clear message after 3 seconds
             }).catch(err => {
-                console.error('Failed to copy: ', err);
+                console.error('Could not copy text: ', err);
+                const messageDiv = document.getElementById('message');
+                messageDiv.innerText = 'Failed to copy address.';
+                messageDiv.style.color = 'red';
             });
         }
     </script>
-
+    
 </body>
 </html>
