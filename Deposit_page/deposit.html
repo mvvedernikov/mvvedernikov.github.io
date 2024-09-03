@@ -28,6 +28,10 @@
             width: 200px; /* Adjust size as needed */
             height: 200px; /* Adjust size as needed */
         }
+        .wallet-address {
+            font-size: 0.7em; /* 30% smaller than default text */
+            color: #555;
+        }
         .copy-button {
             background-color: #007bff;
             color: white;
@@ -54,7 +58,7 @@
 
     <div class="block">
         <h2>Send 1 TON to Address</h2>
-        <p id="wallet-address">EQCAQd8w43IEdyYXpdPO0IRtvi2FsdCJcWQssrAt3y8KHiRd</p>
+        <p id="wallet-address" class="wallet-address">EQCAQd8w43IEdyYXpdPO0IRtvi2FsdCJcWQssrAt3y8KHiRd</p>
     </div>
 
     <button class="copy-button" onclick="copyToClipboard()">Copy to Clipboard</button>
