@@ -1,0 +1,39 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.container {
+    text-align: center;
+}
+
+.header-image {
+    max-width: 100%;
+    height: auto;
+}
+
+.welcome-text {
+    margin-top: 20px;
+    font-size: 2.5em;
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.7);
+}
+
+.link-text {
+    margin-top: 20px;
+    font-size: 1.5em;
+    color: #FFD700; /* Gold color */
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.link-text:hover {
+    color: #FF4500; /* OrangeRed on hover */
+}
